@@ -1,11 +1,11 @@
 package config
 
 import (
+	"app/utils"
 	"fmt"
 	"log"
 
 	"gopkg.in/go-ini/ini.v1"
-	_ "gopkg.in/go-ini/ini.v1"
 )
 
 type ConfigList struct {
@@ -20,6 +20,7 @@ var Config ConfigList
 // main関数の前にConfigを設定
 func init() {
 	LoadConfig()
+	utils.LoggingSettings(Config.LogFile)
 }
 
 func LoadConfig() {
